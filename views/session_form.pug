@@ -1,0 +1,65 @@
+extends layout
+
+block content
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
+        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#main-navbar" style='margin-left: 10px;')
+            span.navbar-toggler-icon
+        #main-navbar.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto(style='margin-left: 10px;')
+                li.nav-item
+                    a.nav-link(href='/waitlist/gravlaxisnotalaxative') Home/FAQ
+                li.nav-item
+                    a.nav-link(href='/waitlist/sessions') Active
+                li.nav-item
+                    a.nav-link(href='/waitlist/sessions/waiting') Waiting
+                li.nav-item
+                    a.nav-link(href='/waitlist/sessions/notified') Notified
+                li.nav-item
+                    a.nav-link(href='/waitlist/sessions/confirmed') Confirmed
+                li.nav-item
+                    a.nav-link(href='/waitlist/sessions/archived') Archived
+                - if (session)
+                    li.nav-item.active
+                        a.nav-link(href='#') Update
+                - else 
+                    li.nav-item.active
+                        a.nav-link(href='/waitlist/session/create') Create New
+    main.container(role='main' style='padding: 10px;')
+        h1(style='margin-top: 95px;')=title 
+
+        form(method='POST', action='')
+            div.form-group
+                label #[strong * means Required]
+            div.form-group
+                label(for='first_name') #[strong First Name*]
+                input#first_name.form-control(type='text' placeholder='First Name' name='first_name' required='true' value=(undefined===session ? '' : session.first_name))
+            div.form-group
+                label(for='last_name') #[strong Last Name*]
+                input#last_name.form-control(type='text' placeholder='Last Name' name='last_name' required='true' value=(undefined===session ? '' : session.last_name))
+            div.form-group
+                label(for='party_num') #[strong Number Of People*]
+                input#party_num.form-control(type='number' placeholder="e.g. 2" min="1" max="90" name='party_num' required='true' value=(undefined===session ? '' : session.party_num))
+            div.form-group
+                label(for='seating') #[strong Seating Preference]
+                select#seating.form-control(type='select' placeholder='Select...' name='seating' required='false')
+                    option(value='Indoors') Indoors
+                    option(value='Patio') Patio 
+                    option(value='No Preference') No Preference
+            div.form-group
+                label #[strong Is the Guest carrying a smart phone?]
+                    input.checkbox-input(type='checkbox', name='has_cell', id='has_cell' value='No' style='margin-left: 10px; margin-right: 5px;')
+                    label(for='has_cell') No
+                p <em>If 'No', fill the fields below with 7806556817 or with your own cell phone number (if you don't mind receiving spam).</em>
+            div.form-group
+                label(for='cell_num') #[strong Phone Number*] (10 digits; no other characters)
+                input#cell_num.form-control(type='tel' pattern="[0-9]{10}" placeholder='##########' name='cell_num' required='true' value=(undefined===session ? '' : session.cell_num))
+            div.form-group(style='text-align: center;')
+                button.btn.btn-primary#detailbuttons(type='submit') Submit
+        - if (session) 
+            div(style='text-align: center;')
+                a(href=session.urlDetails)
+                    button.btn.btn-dark#detailbuttons Cancel
+        if errors 
+            ul 
+                for error in errors 
+                    li!= error.msg

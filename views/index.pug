@@ -1,0 +1,171 @@
+extends layout
+
+block content
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
+        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#main-navbar" style='margin-left: 10px;')
+            span.navbar-toggler-icon
+        #main-navbar.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto(style='margin-left: 10px;')
+                li.nav-item.active
+                    a.nav-link(href='/waitlist/gravlaxisnotalaxative') Home/FAQ
+                li.nav-item
+                    a.nav-link(href='/waitlist/sessions') Active
+                li.nav-item
+                    a.nav-link(href='/waitlist/sessions/waiting') Waiting
+                li.nav-item
+                    a.nav-link(href='/waitlist/sessions/notified') Notified
+                li.nav-item
+                    a.nav-link(href='/waitlist/sessions/confirmed') Confirmed
+                li.nav-item
+                    a.nav-link(href='/waitlist/sessions/archived') Archived
+                li.nav-item
+                    a.nav-link(href='/waitlist/session/create') Create New
+    main.container(role='main' style='padding: 60px;')
+        h1 Sugarbowl Waitlist
+        br
+        p.lead #[strong Welcome to our Waitlist App!]
+        p #[strong For the FAQ, please pay attention to statements in 'bold' font.]
+        br
+        h2 FAQ
+        ol 
+            li 
+                a(href='#view_the_waitlist') View the Waitlist
+            li 
+                a(href='#notify_guests') Notify Guests
+            li 
+                a(href='#clean_up') Clean up (Archive) old Wait Sessions
+            li 
+                a(href='#create_wait') Create a Wait Session
+            li 
+                a(href='#update_wait') Update Wait Session Details
+            li 
+                a(href='#delete_wait') Delete a Wait Session
+            li 
+                a(href='#guest_experience') The Guest's Waitlist Experience
+        br#view_the_waitlist
+        hr
+        h3 View the Waitlist 
+        ol
+            li Click 'Active'/'Waiting'/'Notified'/'Confirmed' on the navigation bar to view Wait Lists. 
+            ul
+                li 'Active' contains 'Waiting' and 'Notified' Guests.
+                li 'Waiting' contains Guests you haven't notified to come in yet.
+                li 'Notified' contains Guests you <em>have</em> notified to come in.
+                li 'Confirmed' contains Guests you <em>have</em> notified AND who have confirmed that they are coming in.
+                li 'Archived' contains Guests who have been:
+                    br
+                    ul 
+                        li Notified to come in More Than 1 Hour ago.
+                        li Waiting for More Than 2 Hours.
+            li Click any Guest Name in 'Active'/'Waiting'/'Notified'/'Confirmed'/'Archived' to view the Guest's Wait Session Details. 
+            ul
+                li #[strong Please note the 'Number Of People' and 'Seating Preference' for each Wait Session <em>before</em> you notify a Guest to come in.]
+        br#notify_guests
+        hr
+        h3 Notify Guests 
+        ul
+            li #[strong To notify a Guest to come in, you can either send them an SMS OR Phone them:]
+                ul 
+                    li Click on a Guest Name in 'Waiting'.
+                    li Click #[strong 'Notify By SMS'].
+                        ul
+                            li The Guest will receive an SMS on their cell phone asking them to come in. 
+                            li The Guest will be transferred from 'Waiting' to 'Notified'.
+                            li #[strong(style='color:red;') Please notify a Guest to come in by SMS only <em>ONCE</em> by clicking the 'Notify By SMS' button. (This is because each SMS costs about 1 cent.)]
+                    li #[strong Alternatively, you can also phone the Guest to ask them to come in.] #[strong If you <em>have</em> phoned them, please click 'Already Phoned Guest' to transfer them from 'Waiting' to 'Notified'.]
+                    li #[strong(style='color:#003BEF;') Consider bookmarking the app's 'Waiting' page on your cell phone (app URL:] #[a(href='http://bit.ly/sugarwaitstaff' target='_blank') bit.ly/sugarwaitstaff] #[strong(style='color:#003BEF;') ) and copying and pasting the Guest's phone number to call them.]
+                    li The time of 'First Notification' (by SMS or phone) will be recorded in the Guest's Wait Session Details.
+        ul 
+            li To notify <em>all</em> Waiting Guests by SMS to come in: 
+                ul 
+                    li Click 'Waiting', then 'Notify All'. You'll be directed to a confirmation page asking you if you really want to do this. 
+            li #[strong Please <em>phone</em> when you can and use SMS for busier times since SMS costs money. Thanks!]
+        br#clean_up
+        hr
+        h3 Clean up (Archive) old Wait Sessions
+        ul 
+            li Click 'Waiting'/'Notified'/'Confirmed' and then 'Archive Old Sessions' to remove old Wait Sessions from the 'Waiting'/'Notified'/'Confirmed' lists.
+            ul 
+                li This removes Guests from the lists who have been (1) waiting for more than 2 hours <em>or</em> (2) notified more than 1 hour ago. 
+                li Guests will be transferred from 'Waiting'/'Notified'/'Confirmed' to 'Archived'.
+                li #[strong 'Archived' only shows Guests who started their wait after 00:00AM (Midnight) today AND were archived].
+                li You can still view a Guest's Wait Session Details after they've been archived by clicking the Guest Name. 
+                li #[strong You cannot 'un-archive' a guest to transfer them back to 'Waiting'/'Notified'/'Confirmed' lists.]
+        br#create_wait
+        hr
+        h3 Create a Wait Session 
+        ol 
+            li Click 'Create New' to create a new Wait Session for a Guest.
+            li Fill out the form.
+            li The Guest will be added to the 'Waiting' and 'Active' lists.
+        ul 
+            li #[strong If the Guest is <em>not</em> carrying a Smart Phone:]
+                ul
+                    li #[strong The 'Create New' form has a checkbox for 'Is the Guest carrying a smart phone?']
+                    li #[strong Use 7806556817 or your own phone number (you won't receive spam).]
+                    li #[strong When a table is ready, click 'Already Phoned Guest' to transfer the Guest from 'Waiting' to 'Notified'.] 
+                    li #[strong Please personally fetch the Guest from outside.]
+        br#update_wait
+        hr
+        h3 Update Wait Session Details 
+        br
+        p #[strong You will only need to update a Wait Session if a Guest asks you to update their details.]
+        ul 
+            li Click the Guest's name under 'Waiting'. Click 'Update Session', fill out and submit the form.
+            ul 
+                li Your updates will be apparent in the Guest's Wait Session Details.
+                li #[strong Note: The app also allows the Guest to update their details, so a Guest's Wait Session Details may change even though <em>you</em> haven't made changes.]
+        br#delete_wait
+        hr
+        h3 Delete a Wait Session 
+        br
+        ul
+            li #[strong Since you can 'archive' Wait Sessions, you will not need to delete a Guest's Wait Session. This functionality is included for 'just-in-case' scenarios], for example, if a guest asks you to delete their information.
+            li #[strong In general, please 'archive' Wait Sessions instead of deleting since I will be collecting data to include 'Estimated Wait Time' to improve the app.]
+            li Click the Guest's name under 'Waitlist'/'Notified'/'Confirmed'/'Archived'. Click 'Delete Session'. #[strong The Wait Session will be deleted forever.]
+        br#guest_experience
+        hr
+        h3 The Guest's Waitlist Experience
+        br
+        p(style='text-align: left;') To join the Waitlist, the Guest:
+        ol 
+            li Connects to Wi-Fi or uses cell phone data.
+            li Scans the #[strong QR Code] or enters the #[strong URL] <#[a(href='http://bit.ly/sugarwait' target='_blank') bit.ly/sugarwait]> for the Waitlist into their browser. #[strong <em>(If the app hasn't been used in 30 min, it goes to sleep and takes a longer time to load back up. The same is true for the app's server interface.)</em>]
+            li Submits the Guest version of the 'Create New' form.
+                ul 
+                    li The form directs them to their Wait Session Details (the Guest version). #[strong The page displays their Position on the waitlist] (e.g. 2 of 5), contact info, etc. #[strong They are asked to bookmark this page to track their progress] in the waitlist (Figure 1).
+            h5(style='text-align: center;') #[strong Figure 1]
+            img#image(src='/images/guest_waitSessionDetails.png' height='500')
+            li #[strong The Guest may click 'Update' on their Wait Session Details page] to update the number of people in their party, seating preference, phone number, name, etc.
+            li #[strong If we click 'Notify By SMS':]
+                ul 
+                    li The Guest receives an #[strong SMS] notifying them to come in to the restaurant (Figure 2). <em>(Figure 2 Modification: The second sentence in the SMS will read "This is Sugarbowl.")</em>
+                    li #[strong Their Wait Session Details will have updated - their 'Status' will have changed from 'Waiting' to 'Notified'. (Guests can also see the 'Number Of Times Notified' and the time of 'First Notification' on their Wait Session Details (Figure 3).)]
+            li #[strong Alternatively, we can Phone the Guest to ask them to come into the restaurant. By clicking 'Aready Phoned Guest', the Guest's status also changes from 'Waiting' to 'Notified', and the time of 'First Notification' and 'Number Of Times Notified' also change accordingly.] (So technically, you could send the Guest an SMS <em>and</em> Phone them (and use either/both methods multiple times), if that's what you want, but again SMS costs money.)
+            table.table-responsive#table_image
+                tr
+                    td
+                        h5(style='text-align: center;') #[strong Figure 2]
+                        img#image(src='/images/notify_sms.png' width='300' style='margin: auto; margin-bottom: 10px;')
+                    td
+                        h5(style='text-align: center;') #[strong Figure 3]
+                        img#image(src='/images/guest_notified.png' height='500' style='margin-left: 10px;')
+            li #[strong The Guest can drop out of the Waitlist by clicking a 'Leave The Waitlist' button on their Wait Session Details.]
+            li #[strong When the Guest is notified to come in, a button displays on their Wait Session Details allowing them to confirm that they are coming in]. When they do this, #[strong their status changes from "Notified" to "Confirmed".]
+            li Guest enters the restaurant.
+        br
+        p(style='text-align: left;') #[strong If the Guest is <em>not</em> carrying a Smart Phone, see] 
+            a(href='#create_wait') 'Create a Wait Session'
+            | #[strong .]
+        br
+        a(href='#')
+            button.btn.btn-primary Back To The Top
+
+            
+        
+        
+            
+
+            
+
+        
