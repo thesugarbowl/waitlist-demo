@@ -1,2 +1,2 @@
 # Sugarbowl Waitlist
-Web app to manage the restaurant Sugarbowl's waitlist. This repo is used for demonstrations to staff and to let them experiment with the app. 
+Web app to manage the restaurant Sugarbowl's waitlist. This repo is a demo for Sugarbowl staff to experiment with. (It is connected to its own database, not the production database.)
