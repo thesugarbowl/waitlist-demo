@@ -6,6 +6,8 @@ block content
 
         form(method='POST', action='')
             div.form-group
+                p.lead(style='text-align:center;') Your info will <em>only</em> be used for this waitlist.
+            div.form-group
                 label #[strong * means Required]
             div.form-group
                 label(for='first_name') #[strong First Name*]
@@ -14,8 +16,8 @@ block content
                 label(for='last_name') #[strong Last Name*]
                 input#last_name.form-control(type='text' placeholder='Last Name' name='last_name' required='true' value=(undefined===session ? '' : session.last_name))
             div.form-group
-                label(for='party_num') #[strong Number Of People*]
-                input#party_num.form-control(type='number' placeholder="e.g. 2" min="1" max="90" name='party_num' required='true' value=(undefined===session ? '' : session.party_num))
+                label(for='party_num') #[strong Number Of People*] (max of 6 per COVID regulations)
+                input#party_num.form-control(type='number' placeholder="e.g. 2" min="1" max="6" name='party_num' required='true' value=(undefined===session ? '' : session.party_num))
             div.form-group
                 label(for='seating') #[strong Seating Preference]
                 select#seating.form-control(type='select' placeholder='Select...' name='seating' required='false')
